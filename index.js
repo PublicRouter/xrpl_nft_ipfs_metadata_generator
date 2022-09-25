@@ -332,7 +332,7 @@ const randomAttributeGenerator = (attributeTypeObject) => {
 };
 
 //set number of objects to be created and stored to ipfs
-for(i = 0; i < 2; i++ ) {
+for(i = 0; i < 1; i++ ) {
     const rank = randomRankGenerator(rankTypes)
     const weaponPeice = randomAttributeGenerator(weaponTypes);
     const armourPeice = randomAttributeGenerator(armourTypes);
@@ -364,7 +364,8 @@ for(i = 0; i < 2; i++ ) {
     console.log(jsonPretty);
 
     //uncomment below to enable actual minting to ipfs
-    //main(finalNftAttributes);
+    main(finalNftAttributes);
+    // ipfs://bafyreif547bm6uxifj24exvzimbagtrty7axgwt7bouoymvtmewvragdbe/metadata.json
 
 };
 
