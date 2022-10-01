@@ -1,4 +1,6 @@
-const main = require('./ipfsFunk');
+//nft.storage API connection created in external file and imported
+const main = require('./NftStorageApi');
+//importing File prototype from nft.storage package in node modules
 const { File } = require('nft.storage');
 
 console.log("Hello From NFT Tester!");
@@ -9,6 +11,7 @@ const weaponTypes = {
         percentage: 5,
         models: [
             {
+                id: 1,
                 type: "weapon",
                 name: "Legendary Sword",
                 attack: 12
@@ -331,8 +334,14 @@ const randomAttributeGenerator = (attributeTypeObject) => {
     
 };
 
+//###########################
+//###########################
+//GENERATE IPFS OBJECTS AND STORE TO IPFS VIA nft.Storage NPM PACKAGE
+//###########################
+//########################### 
+
 //set number of objects to be created and stored to ipfs
-for(i = 0; i < 1; i++ ) {
+for(i = 0; i < 10; i++ ) {
     const rank = randomRankGenerator(rankTypes)
     const weaponPeice = randomAttributeGenerator(weaponTypes);
     const armourPeice = randomAttributeGenerator(armourTypes);
@@ -356,7 +365,7 @@ for(i = 0; i < 1; i++ ) {
         attributes: {
             rank: rank,
             weapon: weaponPeice,
-            armour: armourPeice
+            armour: armourPeice,        
         }          
     };
     const finalNft = JSON.stringify(finalNftAttributes);
@@ -364,7 +373,7 @@ for(i = 0; i < 1; i++ ) {
     console.log(jsonPretty);
 
     //uncomment below to enable actual minting to ipfs
-    main(finalNftAttributes);
+    // main(finalNftAttributes);
     // ipfs://bafyreif547bm6uxifj24exvzimbagtrty7axgwt7bouoymvtmewvragdbe/metadata.json
 
 };
